@@ -2,6 +2,3 @@
 0|daily.txt|https://raw.githubusercontent.com/houzi-/CDN/master/daily.txt|每日规则
 1|kp.dat|https://github.com/houzi-/CDN/raw/master/kp.dat|视频规则
 1|user.txt||自定义规则
-0|easylistchina.txt|https://easylist-downloads.adblockplus.org/easylistchina.txt|ABP规则
-0|chengfeng.txt|https://gitee.com/xinggsf/Adblock-Rule/raw/master/mv.txt|乘风视频规则
-0|fanboy.txt|https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-easylist.txt|anti-AD规则

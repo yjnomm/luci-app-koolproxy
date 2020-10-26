@@ -102,12 +102,21 @@ __update_rule() {
 }
 
 update_rss_rules() {
-	echo $(date "+%F %T"): ------------------- 内置规则更新 ------------------- >>$LOGFILE
+	cp $KP_DIR/data/user.txt $KP_DIR/data/rules/user.txt
+	config_load $CONFIG
+	config_foreach __update_rule rss_rule
+}
+
+
+	
+update_rules() {
+		echo $(date "+%F %T"): ------------------- 内置规则更新 ------------------- >>$LOGFILE
 		wget 'https://raw.githubusercontent.com/houzi-/CDN/master/kp.dat' -q -O $KP_DIR/data/rules/kp.dat
 		wget 'https://raw.githubusercontent.com/houzi-/CDN/master/daily.txt' -q -O $KP_DIR/data/rules/daily.txt
 		wget 'https://raw.githubusercontent.com/houzi-/CDN/master/koolproxy.txt' -q -O $KP_DIR/data/rules/koolproxy.txt
-	         echo $(date "+%F %T"): ------------------- 内置规则更新成功！ ------------------- >>$LOGFILE
+                 echo $(date "+%F %T"): ------------------- 内置规则更新成功！ ------------------- >>$LOGFILE
                 RESTART_KOOLPROXY=true
+
 }
 
 update_adb_host() {
@@ -120,6 +129,9 @@ update_adb_host() {
 # main process
 init_env
 limit_log $LOGFILE
+
+# update rules
+update_rules
 
 # update user rules
 update_rss_rules
